@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -O2 -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -O2 -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I. -I. -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++
+INCPATH       = -I. -I. -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++
 QMAKE         = /usr/lib/qt5/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -37,14 +37,10 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = Wallapop1.0.0
-<<<<<<< HEAD
 DISTDIR = /media/mati/INFORMÁTICA/2DAM/Wallapop/Qt/Wallapop/.tmp/Wallapop1.0.0
-=======
-DISTDIR = /home/mati/Documents/Interfaces/Wallapop/.tmp/Wallapop1.0.0
->>>>>>> 8a71468a190c8db99da2c6521b137fd99fa8fd34
 LINK          = g++
 LFLAGS        = -Wl,-O1
-LIBS          = $(SUBLIBS) /usr/lib/x86_64-linux-gnu/libQt5Widgets.so /usr/lib/x86_64-linux-gnu/libQt5Gui.so /usr/lib/x86_64-linux-gnu/libQt5Core.so -lGL -lpthread   
+LIBS          = $(SUBLIBS) /usr/lib/x86_64-linux-gnu/libQt5Widgets.so /usr/lib/x86_64-linux-gnu/libQt5Gui.so /usr/lib/x86_64-linux-gnu/libQt5Sql.so /usr/lib/x86_64-linux-gnu/libQt5Core.so -lGL -lpthread   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -59,24 +55,17 @@ OBJECTS_DIR   = ./
 SOURCES       = dlogin.cpp \
 		dprincipal.cpp \
 		dregistro.cpp \
-<<<<<<< HEAD
 		main.cpp \
 		producto.cpp \
 		usuario.cpp moc_dlogin.cpp \
-=======
-		main.cpp moc_dlogin.cpp \
->>>>>>> 8a71468a190c8db99da2c6521b137fd99fa8fd34
 		moc_dprincipal.cpp \
 		moc_dregistro.cpp
 OBJECTS       = dlogin.o \
 		dprincipal.o \
 		dregistro.o \
 		main.o \
-<<<<<<< HEAD
 		producto.o \
 		usuario.o \
-=======
->>>>>>> 8a71468a190c8db99da2c6521b137fd99fa8fd34
 		moc_dlogin.o \
 		moc_dprincipal.o \
 		moc_dregistro.o
@@ -163,7 +152,6 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		Wallapop.pro dlogin.h \
 		dprincipal.h \
-<<<<<<< HEAD
 		dregistro.h \
 		producto.h \
 		telefonomovil.h \
@@ -173,12 +161,6 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		main.cpp \
 		producto.cpp \
 		usuario.cpp
-=======
-		dregistro.h dlogin.cpp \
-		dprincipal.cpp \
-		dregistro.cpp \
-		main.cpp
->>>>>>> 8a71468a190c8db99da2c6521b137fd99fa8fd34
 QMAKE_TARGET  = Wallapop
 DESTDIR       = 
 TARGET        = Wallapop
@@ -370,13 +352,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-<<<<<<< HEAD
 	$(COPY_FILE) --parents dlogin.h dprincipal.h dregistro.h producto.h telefonomovil.h usuario.h $(DISTDIR)/
 	$(COPY_FILE) --parents dlogin.cpp dprincipal.cpp dregistro.cpp main.cpp producto.cpp usuario.cpp $(DISTDIR)/
-=======
-	$(COPY_FILE) --parents dlogin.h dprincipal.h dregistro.h $(DISTDIR)/
-	$(COPY_FILE) --parents dlogin.cpp dprincipal.cpp dregistro.cpp main.cpp $(DISTDIR)/
->>>>>>> 8a71468a190c8db99da2c6521b137fd99fa8fd34
 	$(COPY_FILE) --parents dlogin.ui dprincipal.ui dregistro.ui $(DISTDIR)/
 
 
@@ -418,37 +395,25 @@ moc_dlogin.cpp: dlogin.h \
 		ui_dregistro.h \
 		dprincipal.h \
 		ui_dprincipal.h \
-<<<<<<< HEAD
-		producto.h \
 		usuario.h \
+		producto.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /media/mati/INFORMÁTICA/2DAM/Wallapop/Qt/Wallapop/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/media/mati/INFORMÁTICA/2DAM/Wallapop/Qt/Wallapop -I/media/mati/INFORMÁTICA/2DAM/Wallapop/Qt/Wallapop -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include dlogin.h -o moc_dlogin.cpp
-=======
-		moc_predefs.h \
-		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/mati/Documents/Interfaces/Wallapop/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/mati/Documents/Interfaces/Wallapop -I/home/mati/Documents/Interfaces/Wallapop -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include dlogin.h -o moc_dlogin.cpp
->>>>>>> 8a71468a190c8db99da2c6521b137fd99fa8fd34
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /media/mati/INFORMÁTICA/2DAM/Wallapop/Qt/Wallapop/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/media/mati/INFORMÁTICA/2DAM/Wallapop/Qt/Wallapop -I/media/mati/INFORMÁTICA/2DAM/Wallapop/Qt/Wallapop -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include dlogin.h -o moc_dlogin.cpp
 
 moc_dprincipal.cpp: dprincipal.h \
 		ui_dprincipal.h \
+		usuario.h \
+		producto.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-<<<<<<< HEAD
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /media/mati/INFORMÁTICA/2DAM/Wallapop/Qt/Wallapop/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/media/mati/INFORMÁTICA/2DAM/Wallapop/Qt/Wallapop -I/media/mati/INFORMÁTICA/2DAM/Wallapop/Qt/Wallapop -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include dprincipal.h -o moc_dprincipal.cpp
-=======
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/mati/Documents/Interfaces/Wallapop/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/mati/Documents/Interfaces/Wallapop -I/home/mati/Documents/Interfaces/Wallapop -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include dprincipal.h -o moc_dprincipal.cpp
->>>>>>> 8a71468a190c8db99da2c6521b137fd99fa8fd34
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /media/mati/INFORMÁTICA/2DAM/Wallapop/Qt/Wallapop/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/media/mati/INFORMÁTICA/2DAM/Wallapop/Qt/Wallapop -I/media/mati/INFORMÁTICA/2DAM/Wallapop/Qt/Wallapop -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include dprincipal.h -o moc_dprincipal.cpp
 
 moc_dregistro.cpp: dregistro.h \
 		ui_dregistro.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-<<<<<<< HEAD
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /media/mati/INFORMÁTICA/2DAM/Wallapop/Qt/Wallapop/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/media/mati/INFORMÁTICA/2DAM/Wallapop/Qt/Wallapop -I/media/mati/INFORMÁTICA/2DAM/Wallapop/Qt/Wallapop -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include dregistro.h -o moc_dregistro.cpp
-=======
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/mati/Documents/Interfaces/Wallapop/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/mati/Documents/Interfaces/Wallapop -I/home/mati/Documents/Interfaces/Wallapop -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include dregistro.h -o moc_dregistro.cpp
->>>>>>> 8a71468a190c8db99da2c6521b137fd99fa8fd34
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /media/mati/INFORMÁTICA/2DAM/Wallapop/Qt/Wallapop/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/media/mati/INFORMÁTICA/2DAM/Wallapop/Qt/Wallapop -I/media/mati/INFORMÁTICA/2DAM/Wallapop/Qt/Wallapop -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include dregistro.h -o moc_dregistro.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -484,17 +449,15 @@ dlogin.o: dlogin.cpp dlogin.h \
 		dregistro.h \
 		ui_dregistro.h \
 		dprincipal.h \
-<<<<<<< HEAD
 		ui_dprincipal.h \
-		producto.h \
-		usuario.h
-=======
-		ui_dprincipal.h
->>>>>>> 8a71468a190c8db99da2c6521b137fd99fa8fd34
+		usuario.h \
+		producto.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dlogin.o dlogin.cpp
 
 dprincipal.o: dprincipal.cpp dprincipal.h \
-		ui_dprincipal.h
+		ui_dprincipal.h \
+		usuario.h \
+		producto.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dprincipal.o dprincipal.cpp
 
 dregistro.o: dregistro.cpp dregistro.h \
@@ -502,13 +465,9 @@ dregistro.o: dregistro.cpp dregistro.h \
 		dlogin.h \
 		ui_dlogin.h \
 		dprincipal.h \
-<<<<<<< HEAD
 		ui_dprincipal.h \
-		producto.h \
-		usuario.h
-=======
-		ui_dprincipal.h
->>>>>>> 8a71468a190c8db99da2c6521b137fd99fa8fd34
+		usuario.h \
+		producto.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dregistro.o dregistro.cpp
 
 main.o: main.cpp dlogin.h \
@@ -516,10 +475,9 @@ main.o: main.cpp dlogin.h \
 		dregistro.h \
 		ui_dregistro.h \
 		dprincipal.h \
-<<<<<<< HEAD
 		ui_dprincipal.h \
-		producto.h \
-		usuario.h
+		usuario.h \
+		producto.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 producto.o: producto.cpp producto.h \
@@ -530,11 +488,6 @@ usuario.o: usuario.cpp usuario.h \
 		producto.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o usuario.o usuario.cpp
 
-=======
-		ui_dprincipal.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
-
->>>>>>> 8a71468a190c8db99da2c6521b137fd99fa8fd34
 moc_dlogin.o: moc_dlogin.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dlogin.o moc_dlogin.cpp
 

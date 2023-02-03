@@ -8,7 +8,7 @@ Usuario::Usuario(){
    	 
 }
 
-Usuario::Usuario(int numTel, const QString &name, const QString &userName, int id, const QString &mail, const QList<Producto*> &enVenta, const QList<Producto*> &favs) : numTel(numTel), name(name), userName(userName), id(id), mail(mail), enVenta(enVenta), favs(favs)
+Usuario::Usuario(int numTelPasado, const QString &namePasado, const QString &userNamePasado, int idPasado, const QString &mailPasado, const QList<Producto*> &enVentaPasado, const QList<Producto*> &favsPasado) : numTel(numTelPasado), name(namePasado), userName(userNamePasado), id(idPasado), mail(mailPasado), enVenta(enVentaPasado), favs(favsPasado)
 {
 
 }
@@ -18,10 +18,16 @@ QString Usuario::toString() const
 {
 	
     QStringList enVentaStringList;
+    qDebug()<<"test ppp1";
+    qDebug()<<enVenta.size();
+    for(int i=0; i<enVenta.size();i++){
+    	qDebug()<<"test venta";
+    }
     for (Producto *producto : enVenta) {
+    	    qDebug()<<"test 2";
         enVentaStringList.append(producto->toString());	
     }
-    
+    qDebug()<<"test 2,5";
     QStringList favsStringList;
     for (Producto *producto : favs) {
         favsStringList.append(producto->toString());

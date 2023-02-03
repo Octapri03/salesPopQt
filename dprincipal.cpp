@@ -8,17 +8,18 @@ DPrincipal::DPrincipal(QString nombre,QWidget *parent): QDialog(parent){
 	
 }
 
-<<<<<<< HEAD
 DPrincipal::DPrincipal(Usuario *usuarioPasado,QWidget *parent): QDialog(parent){
 		setupUi(this);
-	usuarioPasado = usuario;
-	QString cadena("Manin");
+		qDebug()<<"Test1";
+	usuario = usuarioPasado;
+	qDebug()<<"Test2";
+	QString cadena=usuario->mail;
+	qDebug()<<"Test3";
 	nombreSesion->setText(cadena);
 	qDebug()<<usuario->toString();
+	qDebug()<<"Test4";
 }
 
-=======
->>>>>>> 8a71468a190c8db99da2c6521b137fd99fa8fd34
 
 void DPrincipal::slotEjemplo(){
 

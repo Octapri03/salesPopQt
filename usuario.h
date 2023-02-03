@@ -9,8 +9,8 @@ class Usuario
 
 public:
     Usuario();
-    Usuario(int numTel, const QString &name, const QString &userName, int id, const QString &mail, const QList<Producto*> &enVenta, const QList<Producto*> &favs);
-	  Usuario(int numTel, const QString &name, const QString &userName, int id, const QString &mail, const QList<Producto*> &enVenta);
+    Usuario(int , const QString &, const QString &, int , const QString &, const QList<Producto*> &, const QList<Producto*> &);
+	Usuario(int , const QString &, const QString &, int , const QString &, const QList<Producto*> &);
     int numTel;
     QString name;
     QString userName;
@@ -21,19 +21,19 @@ public:
     
 	QString toString() const;
     int getNumTel() const;
-    void setNumTel(int value);
+    void setNumTel(int);
     QString getName() const;
-    void setName(const QString &value);
+    void setName(const QString &);
     QString getUserName() const;
-    void setUserName(const QString &value);
+    void setUserName(const QString &);
     int getId() const;
-    void setId(int value);
+    void setId(int);
     QString getMail() const;
-    void setMail(const QString &value);
+    void setMail(const QString &);
     QList<Producto*> getEnVenta() const;
-    void setEnVenta(const QList<Producto*> &value);
+    void setEnVenta(const QList<Producto*> &);
     QList<Producto*> getFavs() const;
-    void setFavs(const QList<Producto*> &value);
+    void setFavs(const QList<Producto*> &);
 };
 
 

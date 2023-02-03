@@ -6,7 +6,7 @@ Producto::Producto()
 
 }
 
-Producto::Producto(int id_prod, const QString &name, int price, const QString &description, const QString &ubication, Tipo tipo, const QDate &fechaPubli, Usuario *vendedor) : id_prod(id_prod), name(name), price(price), description(description), ubication(ubication), tipo(tipo), fechaPubli(fechaPubli), vendedor(vendedor)
+Producto::Producto(int id_prodPasado, const QString &namePasado, int pricePasado, const QString &descriptionPasado, const QString &ubicationPasado, Tipo tipoPasado, const QDate &fechaPubliPasado, Usuario *vendedorPasado) : id_prod(id_prodPasado), name(namePasado), price(pricePasado), description(descriptionPasado), ubication(ubicationPasado), tipo(tipoPasado), fechaPubli(fechaPubliPasado), vendedor(vendedorPasado)
 {
 
 }

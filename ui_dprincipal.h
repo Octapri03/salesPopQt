@@ -28,11 +28,7 @@ public:
         DPrincipal->resize(651, 437);
         nombreSesion = new QLabel(DPrincipal);
         nombreSesion->setObjectName(QString::fromUtf8("nombreSesion"));
-<<<<<<< HEAD
         nombreSesion->setGeometry(QRect(70, 30, 511, 311));
-=======
-        nombreSesion->setGeometry(QRect(526, 10, 111, 20));
->>>>>>> 8a71468a190c8db99da2c6521b137fd99fa8fd34
 
         retranslateUi(DPrincipal);
 

@@ -10,7 +10,7 @@ class Producto
 
 public:
     Producto();
-    Producto(int id_prod, const QString &name, int price, const QString &description, const QString &ubication, Tipo tipo, const QDate &fechaPubli, Usuario *vendedor);
+    Producto(int, const QString &, int , const QString &, const QString &, Tipo , const QDate &, Usuario *);
 
     int id_prod;
     QString name;
@@ -22,21 +22,21 @@ public:
     Usuario *vendedor;
 QString toString() const;
     int getId_prod() const;
-    void setId_prod(int value);
+    void setId_prod(int);
     QString getName() const;
-    void setName(const QString &value);
+    void setName(const QString &);
     int getPrice() const;
-    void setPrice(int value);
+    void setPrice(int);
     QString getDescription() const;
-    void setDescription(const QString &value);
+    void setDescription(const QString &);
     QString getUbication() const;
-    void setUbication(const QString &value);
+    void setUbication(const QString &);
     Tipo getTipo() const;
-    void setTipo(const Tipo &value);
+    void setTipo(const Tipo &);
     QDate getFechaPubli() const;
-    void setFechaPubli(const QDate &value);
+    void setFechaPubli(const QDate &);
     Usuario *getVendedor() const;
-    void setVendedor(Usuario *value);
+    void setVendedor(Usuario *);
 };
 
 
