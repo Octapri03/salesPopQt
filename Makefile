@@ -40,7 +40,7 @@ DISTNAME      = Wallapop1.0.0
 DISTDIR = /media/mati/INFORMÁTICA/2DAM/Wallapop/Qt/Wallapop/.tmp/Wallapop1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1
-LIBS          = $(SUBLIBS) /usr/lib/x86_64-linux-gnu/libQt5Widgets.so /usr/lib/x86_64-linux-gnu/libQt5Gui.so /usr/lib/x86_64-linux-gnu/libQt5Sql.so /usr/lib/x86_64-linux-gnu/libQt5Core.so -lGL -lpthread   
+LIBS          = $(SUBLIBS) -lpq /usr/lib/x86_64-linux-gnu/libQt5Widgets.so /usr/lib/x86_64-linux-gnu/libQt5Gui.so /usr/lib/x86_64-linux-gnu/libQt5Sql.so /usr/lib/x86_64-linux-gnu/libQt5Core.so -lGL -lpthread   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -52,7 +52,8 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = dlogin.cpp \
+SOURCES       = database.cpp \
+		dlogin.cpp \
 		dprincipal.cpp \
 		dregistro.cpp \
 		main.cpp \
@@ -60,7 +61,8 @@ SOURCES       = dlogin.cpp \
 		usuario.cpp moc_dlogin.cpp \
 		moc_dprincipal.cpp \
 		moc_dregistro.cpp
-OBJECTS       = dlogin.o \
+OBJECTS       = database.o \
+		dlogin.o \
 		dprincipal.o \
 		dregistro.o \
 		main.o \
@@ -150,12 +152,14 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		Wallapop.pro dlogin.h \
+		Wallapop.pro database.h \
+		dlogin.h \
 		dprincipal.h \
 		dregistro.h \
 		producto.h \
 		telefonomovil.h \
-		usuario.h dlogin.cpp \
+		usuario.h database.cpp \
+		dlogin.cpp \
 		dprincipal.cpp \
 		dregistro.cpp \
 		main.cpp \
@@ -352,8 +356,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents dlogin.h dprincipal.h dregistro.h producto.h telefonomovil.h usuario.h $(DISTDIR)/
-	$(COPY_FILE) --parents dlogin.cpp dprincipal.cpp dregistro.cpp main.cpp producto.cpp usuario.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents database.h dlogin.h dprincipal.h dregistro.h producto.h telefonomovil.h usuario.h $(DISTDIR)/
+	$(COPY_FILE) --parents database.cpp dlogin.cpp dprincipal.cpp dregistro.cpp main.cpp producto.cpp usuario.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents dlogin.ui dprincipal.ui dregistro.ui $(DISTDIR)/
 
 
@@ -444,6 +448,9 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 ####### Compile
 
+database.o: database.cpp database.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o database.o database.cpp
+
 dlogin.o: dlogin.cpp dlogin.h \
 		ui_dlogin.h \
 		dregistro.h \
@@ -457,7 +464,8 @@ dlogin.o: dlogin.cpp dlogin.h \
 dprincipal.o: dprincipal.cpp dprincipal.h \
 		ui_dprincipal.h \
 		usuario.h \
-		producto.h
+		producto.h \
+		database.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dprincipal.o dprincipal.cpp
 
 dregistro.o: dregistro.cpp dregistro.h \
